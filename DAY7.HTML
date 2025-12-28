@@ -1,0 +1,231 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Input Values</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+        <label>Roll no (must fill):</label>
+        <input type="text" id="RollnoInput" required minlength="1"><br><br>
+
+        <label>Username (must fill):</label>
+        <input type="text" id="UsernameInput" required minlength="3"><br><br>
+
+        <label>Email (must fill):</label>
+        <input type="email" id="emailInput" required><br><br>
+
+        <label>Password (must fill):</label>
+        <input type="password" id="passwordInput" required><br><br>
+
+        <label>Age (must fill):</label>
+        <input type="number" id="ageInput" min="13" max="120" required><br><br>
+
+        <label>Gender:</label>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="Gender" value="Male">
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="Gender" value="Female"><br><br>
+
+        <label>Date:</label>
+        <input type="date" id="dateInput"><br><br>
+
+        <label>Phone no:</label>
+        <input type="tel" id="PhonenoInput"><br><br>
+
+        <button type="submit">Join</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const rollno = document.getElementById("RollnoInput").value;
+            const username = document.getElementById("UsernameInput").value;
+            const email = document.getElementById("emailInput").value;
+            const password = document.getElementById("passwordInput").value;
+            const age = document.getElementById("ageInput").value;
+            const gender = document.querySelector('input[name="Gender"]:checked')?.value || "Not selected";
+            const date = document.getElementById("dateInput").value;
+            const phoneno = document.getElementById("PhonenoInput").value;
+
+            document.getElementById("output").innerHTML = `
+              <p><strong>Roll no:</strong> ${rollno}</p>
+              <p><strong>Username:</strong> ${username}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Password:</strong> ${password}</p>
+              <p><strong>Age:</strong> ${age}</p>
+              <p><strong>Gender:</strong> ${gender}</p>
+              <p><strong>Date:</strong> ${date}</p>
+              <p><strong>Phone no:</strong> ${phoneno}</p>
+            `;
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* light blue background */
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #ffffff; /* white card */
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0066cc; /* blue heading */
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fafafa;
+    }
+
+    input:focus {
+      border-color: #0066cc;
+      outline: none;
+    }
+
+    .gender-options {
+      margin-bottom: 15px;
+    }
+
+    .gender-options label {
+      font-weight: normal;
+      margin-right: 15px;
+    }
+
+    .gender-options input {
+      margin-right: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0066cc; /* blue button */
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004c99; /* darker blue */
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background-color: #e6f2ff; /* light blue info box */
+      color: #003366;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+      <label>Roll no (must fill):</label>
+      <input type="text" id="RollnoInput" required minlength="1">
+
+      <label>Username (must fill):</label>
+      <input type="text" id="UsernameInput" required minlength="3">
+
+      <label>Email (must fill):</label>
+      <input type="email" id="emailInput" required>
+
+      <label>Password (must fill):</label>
+      <input type="password" id="passwordInput" required>
+
+      <label>Age (must fill):</label>
+      <input type="number" id="ageInput" min="13" max="120" required>
+
+      <label>Gender:</label>
+      <div class="gender-options">
+        <input type="radio" id="male" name="Gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="Gender" value="Female">
+        <label for="female">Female</label>
+      </div>
+
+      <label>Date:</label>
+      <input type="date" id="dateInput">
+
+      <label>Phone no:</label>
+      <input type="tel" id="PhonenoInput">
+
+      <button type="submit">Join</button>
+    </form>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const rollno = document.getElementById("RollnoInput").value;
+      const username = document.getElementById("UsernameInput").value;
+      const email = document.getElementById("emailInput").value;
+      const password = document.getElementById("passwordInput").value;
+      const age = document.getElementById("ageInput").value;
+      const gender = document.querySelector('input[name="Gender"]:checked')?.value || "Not selected";
+      const date = document.getElementById("dateInput").value;
+      const phoneno = document.getElementById("PhonenoInput").value;
+
+      document.getElementById("output").innerHTML = `
+        <p><strong>Roll no:</strong> ${rollno}</p>
+        <p><strong>Username:</strong> ${username}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Password:</strong> ${"*".repeat(password.length)}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Phone no:</strong> ${phoneno}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
